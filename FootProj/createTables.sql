@@ -7,6 +7,7 @@ DROP TABLE coaches;
 DROP TABLE games;
 DROP TABLE players2positions;
 DROP TABLE teams2games;
+DROP TABLE allData;
 
 CREATE TABLE players(
     playerID int PRIMARY key not NULL,
@@ -77,3 +78,10 @@ CREATE TABLE teams2Games(
     team2ID int not NUll,
     gameID int not NULL
 );
+
+.mode "csv"
+.separator ","
+.headers off
+
+-- Importing every tbl file into a samely named sql table. 
+.import './data/players.csv' allData
