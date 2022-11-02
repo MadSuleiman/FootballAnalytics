@@ -28,7 +28,7 @@ CREATE TABLE stats(
     rush_yds int default 0,
     rush_td int default 0,
     rush_long int default 0,
-    targets int default 0,
+    targets default 0,
     rec int default 0,
     rec_yds int default 0,
     rec_td int default 0
