@@ -10,37 +10,38 @@ DROP TABLE teams2games;
 DROP TABLE allData;
 
 CREATE TABLE players(
-    playerID int PRIMARY key not NULL,
-    teamID int
+    playerID string,
+    name string,
+    teamID integer
 );
 
 CREATE TABLE stats(
-    playerID int not NULL,
-    pass_cmp int default 0,
-    pass_att int default 0,
-    pass_yds int default 0,
-    pass_td int default 0,
-    pass_int int default 0,
-    pass_sacked int default 0,
-    pass_sacked_yds int default 0,
-    pass_long int default 0,
-    pass_rating int default 0,
-    rush_att int default 0,
-    rush_yds int default 0,
-    rush_td int default 0,
-    rush_long int default 0,
+    playerID integer not NULL,
+    pass_cmp integer default 0,
+    pass_att integer default 0,
+    pass_yds integer default 0,
+    pass_td integer default 0,
+    pass_integer integer default 0,
+    pass_sacked integer default 0,
+    pass_sacked_yds integer default 0,
+    pass_long integer default 0,
+    pass_rating integer default 0,
+    rush_att integer default 0,
+    rush_yds integer default 0,
+    rush_td integer default 0,
+    rush_long integer default 0,
     targets default 0,
-    rec int default 0,
-    rec_yds int default 0,
-    rec_td int default 0
+    rec integer default 0,
+    rec_yds integer default 0,
+    rec_td integer default 0
 );
 
 CREATE TABLE positions(
-    positionID int PRIMARY key not NULL
+    positionID integer PRIMARY key AUTOINCREMENT 
 );
 
 CREATE TABLE teams(
-    teamID int PRIMARY key not NULL,
+    teamID integer PRIMARY key AUTOINCREMENT,
     name string, 
     city string,
     color1 string,
@@ -48,40 +49,40 @@ CREATE TABLE teams(
 );
 
 CREATE TABLE divisions(
-    divisionID int PRIMARY key not NULL,
-    teamID int not NULL
+    divisionID integer PRIMARY key AUTOINCREMENT,
+    teamID integer not NULL
 );
 
 CREATE TABLE coaches(
-    coachID int PRIMARY key not NULL,
+    coachID integer PRIMARY key AUTOINCREMENT,
     name string,
-    age int,
-    winPercentage int
+    age integer,
+    winPercentage integer
 );
 
 CREATE TABLE games(
-    gameID int PRIMARY key not NULL,
-    score int,
+    gameID integer PRIMARY key AUTOINCREMENT,
+    score integer,
     date dateTime 
 );
 
 -- Our first many to many table
 CREATE TABLE players2Positions(
-    playerID int not NULL,
-    positionID int not NULL,
+    playerID integer not NULL,
+    positionID integer not NULL,
     year dateTime
 );
 
 -- Our second many to many table
 CREATE TABLE teams2Games(
-    team1ID int not NULL,
-    team2ID int not NUll,
-    gameID int not NULL
+    team1ID integer not NULL,
+    team2ID integer not NUll,
+    gameID integer not NULL
 );
 
 .mode "csv"
 .separator ","
 .headers off
 
--- Importing every tbl file into a samely named sql table. 
+-- Importing every tbl file integero a samely named sql table. 
 .import './data/players.csv' allData
