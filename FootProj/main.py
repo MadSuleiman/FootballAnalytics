@@ -8,8 +8,3 @@ from sqlalchemy.orm import relationship
 
 engine = create_engine("sqlite:////main.db")
 
-
-
-
-db.create_all()
-db.session.commit()
