@@ -10,8 +10,8 @@ DROP TABLE teams2games;
 DROP TABLE allData;
 
 CREATE TABLE players(
-    playerID string,
-    name string,
+    id string,
+    p_name string,
     teamID integer
 );
 
@@ -45,7 +45,7 @@ CREATE TABLE positions(
 
 CREATE TABLE teams(
     id integer PRIMARY key,
-    name string--, 
+    t_name string--, 
     -- city string,
     -- color1 string,
     -- color2 string

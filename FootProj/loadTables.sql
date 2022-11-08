@@ -10,7 +10,7 @@ insert into positions(position)
     select distinct pos
         from allData;
 
-insert into teams(name)
+insert into teams(t_name)
     select distinct home_team
         from allData;
 
@@ -26,5 +26,5 @@ insert into players2positions
 insert into teams2games
     select distinct t1.id, t2.id, game_id
         from allData, teams as t1, teams as t2
-        where t1.name = allData.home_team
-        and t2.name = allData.vis_team
+        where t1.t_name = allData.home_team
+        and t2.t_name = allData.vis_team
