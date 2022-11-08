@@ -22,7 +22,7 @@ CREATE TABLE stats(
     pass_att integer default 0,
     pass_yds integer default 0,
     pass_td integer default 0,
-    pass_integer integer default 0,
+    pass_int integer default 0,
     pass_sacked integer default 0,
     pass_sacked_yds integer default 0,
     pass_long integer default 0,
@@ -56,18 +56,8 @@ CREATE TABLE divisions(
     teamID integer not NULL
 );
 
-CREATE TABLE coaches(
-    coachID integer PRIMARY key,
-    c_name string,
-    team string,
-    age integer,
-    winPercentage float,
-    year_hired integer
- 
-);
-
 CREATE TABLE games(
-    gameID string,
+    id string,
     home_score integer,
     vis_score integer,
     date datetime 
@@ -82,8 +72,8 @@ CREATE TABLE players2Positions(
 
 -- Our second many to many table
 CREATE TABLE teams2Games(
-    team1ID string,
-    team2ID string,
+    team1ID integer,
+    team2ID integer,
     gameID string
 );
 
@@ -91,6 +81,6 @@ CREATE TABLE teams2Games(
 .separator ","
 .headers off
 
--- Importing every tbl file integero a samely named sql table. 
+-- Importing every tbl file integer as a samely named sql table. 
 .import './data/players.csv' allData
 .import './data/coaches.csv' coaches
