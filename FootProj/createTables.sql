@@ -58,7 +58,7 @@ CREATE TABLE divisions(
 
 CREATE TABLE coaches(
     coachID integer PRIMARY key,
-    name string,
+    c_name string,
     age integer,
     winPercentage integer,
     team string
