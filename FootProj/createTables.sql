@@ -16,7 +16,8 @@ CREATE TABLE players(
 );
 
 CREATE TABLE stats(
-    playerID integer not NULL,
+    playerID string not NULL,
+    gameID string not NULL,
     pass_cmp integer default 0,
     pass_att integer default 0,
     pass_yds integer default 0,
@@ -37,33 +38,37 @@ CREATE TABLE stats(
 );
 
 CREATE TABLE positions(
-    positionID integer PRIMARY key AUTOINCREMENT 
+    id integer PRIMARY key,
+    position string
+
 );
 
 CREATE TABLE teams(
-    teamID integer PRIMARY key AUTOINCREMENT,
-    name string, 
-    city string,
-    color1 string,
-    color2 string
+    id integer PRIMARY key,
+    name string--, 
+    -- city string,
+    -- color1 string,
+    -- color2 string
 );
 
 CREATE TABLE divisions(
-    divisionID integer PRIMARY key AUTOINCREMENT,
+    divisionID integer PRIMARY key,
     teamID integer not NULL
 );
 
 CREATE TABLE coaches(
-    coachID integer PRIMARY key AUTOINCREMENT,
+    coachID integer PRIMARY key,
     name string,
     age integer,
-    winPercentage integer
+    winPercentage integer,
+    team string
 );
 
 CREATE TABLE games(
-    gameID integer PRIMARY key AUTOINCREMENT,
-    score integer,
-    date dateTime 
+    gameID string,
+    home_score integer,
+    vis_score integer,
+    date datetime 
 );
 
 -- Our first many to many table
@@ -75,9 +80,9 @@ CREATE TABLE players2Positions(
 
 -- Our second many to many table
 CREATE TABLE teams2Games(
-    team1ID integer not NULL,
-    team2ID integer not NUll,
-    gameID integer not NULL
+    team1ID string,
+    team2ID string,
+    gameID string
 );
 
 .mode "csv"
