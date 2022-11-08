@@ -59,9 +59,11 @@ CREATE TABLE divisions(
 CREATE TABLE coaches(
     coachID integer PRIMARY key,
     c_name string,
+    team string,
     age integer,
-    winPercentage integer,
-    team string
+    winPercentage float,
+    year_hired integer
+ 
 );
 
 CREATE TABLE games(
@@ -91,3 +93,4 @@ CREATE TABLE teams2Games(
 
 -- Importing every tbl file integero a samely named sql table. 
 .import './data/players.csv' allData
+.import './data/coaches.csv' coaches
