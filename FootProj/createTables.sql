@@ -15,6 +15,19 @@ CREATE TABLE players(
     teamID integer
 );
 
+CREATE TABLE positions(
+    id integer PRIMARY key,
+    position string
+
+);
+
+-- Our first many to many table
+CREATE TABLE players2Positions(
+    playerID integer not NULL,
+    positionID integer not NULL,
+    year dateTime
+);
+
 CREATE TABLE stats(
     playerID string not NULL,
     gameID string not NULL,
@@ -37,12 +50,6 @@ CREATE TABLE stats(
     rec_td integer default 0
 );
 
-CREATE TABLE positions(
-    id integer PRIMARY key,
-    position string
-
-);
-
 CREATE TABLE teams(
     id integer PRIMARY key,
     t_name string--, 
@@ -51,10 +58,6 @@ CREATE TABLE teams(
     -- color2 string
 );
 
-CREATE TABLE divisions(
-    divisionID integer PRIMARY key,
-    teamID integer not NULL
-);
 
 CREATE TABLE games(
     id string,
@@ -63,18 +66,16 @@ CREATE TABLE games(
     date datetime 
 );
 
--- Our first many to many table
-CREATE TABLE players2Positions(
-    playerID integer not NULL,
-    positionID integer not NULL,
-    year dateTime
-);
-
 -- Our second many to many table
 CREATE TABLE teams2Games(
     team1ID integer,
     team2ID integer,
     gameID string
+);
+
+CREATE TABLE divisions(
+    divisionID integer PRIMARY key,
+    teamID integer not NULL
 );
 
 .mode "csv"
