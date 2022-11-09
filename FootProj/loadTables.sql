@@ -19,7 +19,7 @@ insert into games
         from allData;
 
 insert into players2positions
-    select player_id, positions.id,game_date
+    select distinct player_id, positions.id, game_date
         from positions, allData
         where allData.pos = positions.position;
 
