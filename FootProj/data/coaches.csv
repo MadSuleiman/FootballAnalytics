@@ -1,4 +1,4 @@
-coachID, c_name,team,age,winPercentage,year_hired
+coachID, c_name,c_team,c_age,c_winPercentage,c_year_hired
 1,Kliff Kingsbury,ARI,42,0.647058824,2019
 2,Arthur Smith,ATL,39,0.411764706,2021
 3,John Harbaugh,BAL,58,0.470588235,2008
@@ -20,7 +20,7 @@ coachID, c_name,team,age,winPercentage,year_hired
 19,Sean McVay,LAR,34,0.583333333,2017
 20,Brian Flores,MIA,40,0.529411765,2019
 21,Mike Zimmer,MIN,65,0.470588235,2014
-22,Bill Belichick,NEW,68,0.529411765,2000
+22,Bill Belichick,NWE,68,0.529411765,2000
 23,Sean Payton,NOR,56,0.588235294,2006
 24,Joe Judge,NYG,39,0.235294118,2020
 25,Robert Saleh,NYJ,42,0.235294118,2021

@@ -45,16 +45,13 @@ CREATE TABLE positions(
 
 CREATE TABLE teams(
     id integer PRIMARY key,
-    t_name string--, 
+    t_team string--, 
     -- city string,
     -- color1 string,
     -- color2 string
 );
 
-CREATE TABLE divisions(
-    divisionID integer PRIMARY key,
-    teamID integer not NULL
-);
+
 
 CREATE TABLE games(
     id string,
@@ -84,3 +81,4 @@ CREATE TABLE teams2Games(
 -- Importing every tbl file integer as a samely named sql table. 
 .import './data/players.csv' allData
 .import './data/coaches.csv' coaches
+.import './data/divisions.csv' divisions
