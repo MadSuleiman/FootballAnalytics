@@ -157,6 +157,8 @@ select c_name, ROUND(avg(pass_yds),2) as yds, c_team
     group by p_name
     ORDER BY yds DESC
 )
+GROUP by c_name
+ORDER by MAX(yds) DESC
 
 
 ;
