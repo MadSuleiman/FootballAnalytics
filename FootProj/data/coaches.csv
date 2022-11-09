@@ -1,4 +1,4 @@
-coachID, c_name,c_team,c_age,c_winPercentage,c_year_hired
+coachID,c_name,c_team,c_age,c_winPercentage,c_year_hired
 1,Kliff Kingsbury,ARI,42,0.647058824,2019
 2,Arthur Smith,ATL,39,0.411764706,2021
 3,John Harbaugh,BAL,58,0.470588235,2008
