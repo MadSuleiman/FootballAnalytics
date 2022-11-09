@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 SELECT 'Retreive all player data summed up by player';
 SELECT'________________________________________________________________________';
 
@@ -80,3 +81,37 @@ select p_name, sum(rec_td) as tds
 
 --     group by t_name
 
+=======
+-- Retreive all player data summed up by player
+select p_name, p_team --sum(pass_cmp, sum(pass_att), sum(pass_yds), sum(pass_td), sum(pass_int), sum(pass_sacked), 
+   --sum(pass_sacked_yds), sum(pass_long),sum(pass_rating), sum(rush_att), sum(rush_yds), sum(rush_td), sum(rush_long), sum(targets), sum(rec), sum(rec_yds), sum(rec_td)
+    from players, stats
+    where id = stats.players_id
+    group by players.p_name, players.p_team;
+
+SELECT '__________________________________________________';
+
+
+SELECT p_name FROM players, teams
+WHERE p_team=t_team
+AND t_team="MIA";
+
+SELECT '__________________________________________________';
+
+
+SELECT p_name, t_team FROM players, teams
+WHERE p_team=t_team
+AND (t_team="LAR" OR t_team="LAC")
+ORDER BY p_name;
+
+SELECT '__________________________________________________';
+
+
+SELECT p_name, t_team FROM players, teams, divisions
+WHERE p_team=t_team
+AND t_team=d_team
+AND d_name="NFCN"
+ORDER BY p_name;
+
+SELECT '__________________________________________________';
+>>>>>>> Stashed changes
