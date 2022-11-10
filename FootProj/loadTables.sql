@@ -15,7 +15,7 @@ insert into teams(t_team)
         from allData;
 
 insert into games
-    select distinct game_id, home_score, vis_score, game_date
+    select distinct game_id, home_score, vis_score, substr(game_date, -4, 4)
         from allData;
 
 insert into players2positions
