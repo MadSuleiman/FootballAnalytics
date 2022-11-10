@@ -143,7 +143,7 @@ select t1.name, t1.wins, t2.losses from
     on (t1.name = t2.name);
 
 SELECT'________________________________________________________________________';
-SELECT'12. For coaches hired before 2010, list passing yards by their QB in descending order, with their team name';
+SELECT'12. For coaches hired before 2010, list passing yards by their primary QB in descending order, with their team name';
 SELECT'________________________________________________________________________';
 SELECT c_name, MAX(yds), c_team FROM(
 select c_name, ROUND(avg(pass_yds),2) as yds, c_team
