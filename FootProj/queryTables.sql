@@ -208,30 +208,27 @@ select t5.name, t5.wins + t6.wins, t5.losses+t6.losses from (
             group by t_team
         ) as t2  
         on (t1.name = t2.name)) as t6
-    on t5.name = t6.name;
+    on t5.name = t6.name
+;
 
 SELECT'________________________________________________________________________';
-SELECT'14. Players who play mutiple positions';
+SELECT'14. Players at Multiple Positions in 2021';
 SELECT'________________________________________________________________________';
 select p_name, position
-from players, players2positions, positions
-where players.id = playerID
-and positionID = positions.Id
-and year = 2021
-and players.ID in (
-select playerID
-from players2positions
-where year = 2021
-group by playerID
-having count(*) >= 2
-)
-group by p_name, position;
+    from players, players2positions, positions
+    where players.id  = playerID
+    and positionID = positions.Id 
+    and year = 2021
+    and players.ID in (
+        select playerID
+            from players2positions
+            where year = 2021
+            group by playerID
+            having count(*) >= 2
+        )
+    group by p_name, position
+;
+SELECT'________________________________________________________________________';
+SELECT'15. Top 5 Players for each position';
+SELECT'________________________________________________________________________';
 
-SELECT'________________________________________________________________________';
-SELECT'14. Players arent Quarterbacks that have a "John" in their first or last name';
-SELECT'________________________________________________________________________';
-SELECT DISTINCT p_name, positions.position, p_team FROM players, players2Positions, positions
-WHERE players.id=players2Positions.playerID
-AND positions.id=players2Positions.positionID
-AND positions.position!="QB"
-AND (p_name LIKE "%John%");
