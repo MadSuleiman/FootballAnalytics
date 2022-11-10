@@ -209,3 +209,26 @@ select t5.name, t5.wins + t6.wins, t5.losses+t6.losses from (
         ) as t2  
         on (t1.name = t2.name)) as t6
     on t5.name = t6.name
+;
+
+SELECT'________________________________________________________________________';
+SELECT'14. Players at Multiple Positions in 2021';
+SELECT'________________________________________________________________________';
+select p_name, position
+    from players, players2positions, positions
+    where players.id  = playerID
+    and positionID = positions.Id 
+    and year = 2021
+    and players.ID in (
+        select playerID
+            from players2positions
+            where year = 2021
+            group by playerID
+            having count(*) >= 2
+        )
+    group by p_name, position
+;
+SELECT'________________________________________________________________________';
+SELECT'15. Top 5 Players for each position';
+SELECT'________________________________________________________________________';
+
