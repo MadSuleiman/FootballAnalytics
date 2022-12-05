@@ -1,0 +1,66 @@
+________________________________________________________________________
+2. List all players from the Cleveland Browns (CLE) and Philadelphia Eagles (PHI) List the player alphabetically and the team
+________________________________________________________________________
+Adrian Killins|PHI
+Alshon Jeffery|PHI
+Andy Janovich|CLE
+Anthony Schwartz|CLE
+Austin Hooper|CLE
+Baker Mayfield|CLE
+Boston Scott|PHI
+Caleb Wilson|PHI
+Carson Wentz|PHI
+Case Keenum|CLE
+Corey Clement|PHI
+D'Ernest Johnson|CLE
+Dallas Goedert|PHI
+David Njoku|CLE
+DeSean Jackson|PHI
+DeVonta Smith|PHI
+Demetric Felton|CLE
+Deontay Burnett|PHI
+Derrick Willies|CLE
+Donovan Peoples-Jones|CLE
+Dontrell Hilliard|CLE
+Gardner Minshew II|PHI
+Greg Ward|PHI
+Hakeem Butler|PHI
+Harrison Bryant|CLE
+JJ Arcega-Whiteside|PHI
+Ja'Marcus Bradley|CLE
+Jack Stoll|PHI
+Jalen Hurts|PHI
+Jalen Reagor|PHI
+Jamie Gillan|CLE
+Jarvis Landry|CLE
+Jason Croom|PHI
+Jason Huntley|PHI
+John Hightower|PHI
+John Kelly|CLE
+Johnny Stanton|CLE
+Jojo Natson|CLE
+Jordan Franks|CLE
+Jordan Howard|PHI
+Kareem Hunt|CLE
+KeeSean Johnson|PHI
+Kendall Lamm|CLE
+Kenneth Gainwell|PHI
+KhaDarel Hodge|CLE
+Lane Johnson|PHI
+Lawrence Cager|CLE
+Marvin Hall|CLE
+Miles Sanders|PHI
+Miller Forristall|CLE
+Nate Sudfeld|PHI
+Nick Chubb|CLE
+Nick Mullens|CLE
+Noah Togiai|PHI
+Odell Beckham Jr.|CLE
+Quez Watkins|PHI
+Rashard Higgins|CLE
+Richard Rodgers|PHI
+Stephen Carlson|CLE
+Taywan Taylor|CLE
+Travis Fulgham|PHI
+Tyree Jackson|PHI
+Zach Ertz|PHI
