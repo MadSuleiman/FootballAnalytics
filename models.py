@@ -1,5 +1,9 @@
 import sqlalchemy as db
 from sqlalchemy.orm import sessionmaker
+import sqlite3
+from sqlite3 import Error
+
+
 
 import os
 

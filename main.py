@@ -1,8 +1,9 @@
 import tkinter as tk
 import models
-
 # Create window
 window = tk.Tk()
+window.title('Football Analytics')
+window.iconbitmap("nfl.ico")
 
 # Design goes here
 window.geometry("1000x700")

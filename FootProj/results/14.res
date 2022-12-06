@@ -1,0 +1,39 @@
+________________________________________________________________________
+14. Players at Multiple Positions in 2021
+________________________________________________________________________
+Alex Armah|FB
+Alex Armah|RB
+Anthony Sherman|FB
+Anthony Sherman|RB
+Cordarrelle Patterson|RB
+Cordarrelle Patterson|WR
+Deonte Harris|WR
+Deonte Harris|WR/R
+Elijhaa Penny|FB
+Elijhaa Penny|RB
+Gabe Nabers|FB
+Gabe Nabers|RB
+Giovani Bernard|HB
+Giovani Bernard|RB
+Giovanni Ricci|FB
+Giovanni Ricci|RB
+Joe Fortson|TE
+Joe Fortson|WR
+Juwan Johnson|TE
+Juwan Johnson|WR
+Keith Smith|FB
+Keith Smith|TE
+Nick Bellore|FB
+Nick Bellore|LB
+Patrick Ricard|FB
+Patrick Ricard|FB/D
+Reggie Gilliam|FB
+Reggie Gilliam|TE
+Samaje Perine|HB
+Samaje Perine|RB
+Trayveon Williams|HB
+Trayveon Williams|RB
+Ty Montgomery|RB
+Ty Montgomery|WR
+Willie Snead|WR
+Willie Snead|WR/R
