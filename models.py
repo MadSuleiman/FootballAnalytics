@@ -8,37 +8,89 @@ metadata = db.MetaData()
 # Load our sh file for db creation (temp)
 os.popen('sh ./createload.sh')
 
-class players(db.Model):
+class players():
     id = db.Column(db.String)
     p_name = db.Column(db.String)
     p_team = db.Column(db.String)
 
-# class positions(db.Model):
-#     id = db.Column(db.Integer, nullable = False, primary_key = True),
-#     position = db.Column(db.String)
+class positions():
+    id = db.Column(db.Integer, nullable = False, primary_key = True),
+    position = db.Column(db.String)
 
-# class players2Positions(db.Model):
-#     playerID = db.Column(db.Integer, nullable = False),
-#     positionID = db.Column(db.Integer, nullable = False),
+class players2Positions():
+    playerID = db.Column(db.Integer, nullable = False),
+    positionID = db.Column(db.Integer, nullable = False),
+    year = db.Column(db.Date)
 
+class stats():
+    playerID = db.Column(db.String, nullable = False)
+    gameID = db.Column(db.String, nullable = False)
+    pass_cmp = db.Column(db.Integer, default = 0)
+    pass_att = db.Column(db.Integer, default = 0)
+    pass_yds = db.Column(db.Integer, default = 0)
+    pass_td = db.Column(db.Integer, default = 0)
+    pass_int = db.Column(db.Integer, default = 0)
+    pass_sacked = db.Column(db.Integer, default = 0)
+    pass_sacked_yds = db.Column(db.Integer, default = 0)
+    pass_long = db.Column(db.Integer, default = 0)
+    pass_rating = db.Column(db.Integer, default = 0)
+    rush_att = db.Column(db.Integer, default = 0)
+    rush_yds = db.Column(db.Integer, default = 0)
+    rush_td = db.Column(db.Integer, default = 0)
+    rush_long = db.Column(db.Integer, default = 0)
+    targets = db.Column(db.Integer, default = 0)
+    rec = db.Column(db.Integer, default = 0)
+    rec_yds = db.Column(db.Integer, default = 0)
+    rec_td = db.Column(db.Integer, default = 0)
 
-# class stats(db.Model):
-#     id = db.Column(db.String) 
+class teams():
+    id = db.Column(db.String, primary_key = True)
+    t_team = db.Column(db.String) 
 
-# class teams(db.Model):
-#     id = db.Column(db.String) 
+class games():
+    id = db.Column(db.String) 
+    home_score = db.Column(db.Integer)
+    vis_score = db.Column(db.Integer)
+    date = db.Column(db.Date)
 
-# class games(db.Model):
-#     id = db.Column(db.String) 
+class teams2Games():
+    team1ID = db.Column(db.Integer)
+    team2ID = db.Column(db.Integer)
+    gameID = db.Column(db.String)
 
-# class teams2Games(db.Model):
-#     id = db.Column(db.String) 
+class divisions():
+    id = db.Column(db.String)
+    d_name = db.Column(db.String)
+    d_team = db.Column(db.String)
 
-# class divisions(db.Model):
-#     id = db.Column(db.String) 
+class coaches():
+    id = db.Column(db.String)
+    c_name = db.Column(db.String)
+    c_team = db.Column(db.String)
+    c_age = db.Column(db.Integer)
+    c_winPercent = db.Column(db.Float)
+    c_hired = db.Column(db.Integer)
 
-# class coaches(db.Model):
-#     id = db.Column(db.String) 
-
-# class allData(db.Model):
-#     id = db.Column(db.String) 
+class allData():
+    gameID = db.Column(db.String, nullable = False)
+    playerID = db.Column(db.String, nullable = False)
+    pos = db.Column(db.String)
+    player = db.Column(db.String)
+    team = db.Column(db.String)
+    pass_cmp = db.Column(db.Integer, default = 0)
+    pass_att = db.Column(db.Integer, default = 0)
+    pass_yds = db.Column(db.Integer, default = 0)
+    pass_td = db.Column(db.Integer, default = 0)
+    pass_int = db.Column(db.Integer, default = 0)
+    pass_sacked = db.Column(db.Integer, default = 0)
+    pass_sacked_yds = db.Column(db.Integer, default = 0)
+    pass_long = db.Column(db.Integer, default = 0)
+    pass_rating = db.Column(db.Integer, default = 0)
+    rush_att = db.Column(db.Integer, default = 0)
+    rush_yds = db.Column(db.Integer, default = 0)
+    rush_td = db.Column(db.Integer, default = 0)
+    rush_long = db.Column(db.Integer, default = 0)
+    targets = db.Column(db.Integer, default = 0)
+    rec = db.Column(db.Integer, default = 0)
+    rec_yds = db.Column(db.Integer, default = 0)
+    rec_td = db.Column(db.Integer, default = 0)
