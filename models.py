@@ -9,20 +9,24 @@ metadata = db.MetaData()
 os.popen('sh ./createload.sh')
 
 class players():
+    __tablename__ = 'players'
     id = db.Column(db.String)
     p_name = db.Column(db.String)
     p_team = db.Column(db.String)
 
 class positions():
+    __tablename__ = 'positions'
     id = db.Column(db.Integer, nullable = False, primary_key = True),
     position = db.Column(db.String)
 
 class players2Positions():
+    __tablename__ = 'players2Positions'
     playerID = db.Column(db.Integer, nullable = False),
     positionID = db.Column(db.Integer, nullable = False),
     year = db.Column(db.Date)
 
 class stats():
+    __tablename__ = 'stats'
     playerID = db.Column(db.String, nullable = False)
     gameID = db.Column(db.String, nullable = False)
     pass_cmp = db.Column(db.Integer, default = 0)
@@ -44,26 +48,31 @@ class stats():
     rec_td = db.Column(db.Integer, default = 0)
 
 class teams():
+    __tablename__ = 'teams'
     id = db.Column(db.String, primary_key = True)
     t_team = db.Column(db.String) 
 
 class games():
+    __tablename__ = 'games'
     id = db.Column(db.String) 
     home_score = db.Column(db.Integer)
     vis_score = db.Column(db.Integer)
     date = db.Column(db.Date)
 
 class teams2Games():
+    __tablename__ = 'teams2Games'
     team1ID = db.Column(db.Integer)
     team2ID = db.Column(db.Integer)
     gameID = db.Column(db.String)
 
 class divisions():
+    __tablename__ = 'divisions'
     id = db.Column(db.String)
     d_name = db.Column(db.String)
     d_team = db.Column(db.String)
 
 class coaches():
+    __tablename__ = 'coaches'
     id = db.Column(db.String)
     c_name = db.Column(db.String)
     c_team = db.Column(db.String)
@@ -72,6 +81,7 @@ class coaches():
     c_hired = db.Column(db.Integer)
 
 class allData():
+    __tablename__ = 'allData'
     gameID = db.Column(db.String, nullable = False)
     playerID = db.Column(db.String, nullable = False)
     pos = db.Column(db.String)
