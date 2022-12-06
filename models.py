@@ -1,9 +1,11 @@
 import sqlalchemy as db
+from sqlalchemy.orm import sessionmaker
 
 import os
 
 engine = db.create_engine("sqlite:///main.db")
 metadata = db.MetaData()
+# Session = sessionmaker(engine)
 
 # Load our sh file for db creation (temp)
 os.popen('sh ./createload.sh')
@@ -104,3 +106,13 @@ class allData():
     rec = db.Column(db.Integer, default = 0)
     rec_yds = db.Column(db.Integer, default = 0)
     rec_td = db.Column(db.Integer, default = 0)
+
+def getAll():
+    with engine.connect() as conn:
+        x = conn.execute("select * from allData").fetchall()
+        return x
+
+def statsByPlayer():
+    with engine.connect() as conn:
+        x = conn.execute("select p_name, players.p_team, sum(pass_cmp), sum(pass_att), sum(pass_yds), sum(pass_td), sum(pass_int), sum(pass_sacked), sum(pass_sacked_yds), sum(pass_long),sum(pass_rating), sum(rush_att), sum(rush_yds), sum(rush_td), sum(rush_long), sum(targets), sum(rec), sum(rec_yds), sum(rec_td) from players, stats where players.id = stats.playerID group by p_name, players.p_team;").fetchall()
+        return x
