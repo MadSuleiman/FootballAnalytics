@@ -1,7 +1,6 @@
 import tkinter as tk
 import models
 
-
 # Create window
 window = tk.Tk()
 
