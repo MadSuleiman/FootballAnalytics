@@ -147,6 +147,16 @@ def teamStat():
             x = conn.execute(file).fetchall()
             return x
 
+def bestPlayerByPos():
+    with engine.connect() as conn:
+        with open('./Phase2/queries/16.sql', "r") as r:
+            r.readline()
+            r.readline()
+            r.readline()
+            file = r.read()
+            x = conn.execute(file).fetchall()
+            return x
+
 def printer(x):
     for y in x:
         print(y)
@@ -157,3 +167,4 @@ def printer(x):
 # printer(statsByGame())
 # printer(playerbyPos("QB"))
 # printer(teamStat())
+# printer(bestPlayerByPos())
