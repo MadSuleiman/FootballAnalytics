@@ -158,8 +158,12 @@ def bestPlayerByPos():
             return x
 def playerByName(name):
     with engine.connect() as conn:
-        x = conn.execute("select * from players, stats where players.id = stats.playerID and players.p_name = ?", name).fetchall()
-        # return "Empty"
+        x = conn.execute("select * from players, stats where players.id = stats.playerID and players.p_name like ?", name).fetchall()
+        return x
+
+def playersByTeam(team):
+    with engine.connect() as conn:
+        x = conn.execute("select * from players where players.p_team like ?", team).fetchall()
         return x
 
 def printer(x):
@@ -173,4 +177,5 @@ def printer(x):
 # printer(playerbyPos("QB"))
 # printer(teamStat())
 # printer(bestPlayerByPos())
-printer(playerByName("Deshaun Watson"))
+# printer(playerByName("deshaun watson"))
+printer(playersByTeam("kAn"))
