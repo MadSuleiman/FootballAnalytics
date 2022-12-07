@@ -156,6 +156,7 @@ def bestPlayerByPos():
             file = r.read()
             x = conn.execute(file).fetchall()
             return x
+            
 def playerByName(name):
     with engine.connect() as conn:
         x = conn.execute("select * from players, stats where players.id = stats.playerID and players.p_name like ?", name).fetchall()
@@ -178,4 +179,4 @@ def printer(x):
 # printer(teamStat())
 # printer(bestPlayerByPos())
 # printer(playerByName("deshaun watson"))
-printer(playersByTeam("kAn"))
+# printer(playersByTeam("kAn"))
