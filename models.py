@@ -12,7 +12,7 @@ metadata = db.MetaData()
 # Session = sessionmaker(engine)
 
 # Load our sh file for db creation (temp)
-os.popen('sh ./createload.sh')
+# os.popen('sh ./createload.sh')
 
 class players():
     __tablename__ = 'players'
@@ -156,6 +156,11 @@ def bestPlayerByPos():
             file = r.read()
             x = conn.execute(file).fetchall()
             return x
+def playerByName(name):
+    with engine.connect() as conn:
+        x = conn.execute("select * from players, stats where players.id = stats.playerID and players.p_name = ?", name).fetchall()
+        # return "Empty"
+        return x
 
 def printer(x):
     for y in x:
@@ -168,3 +173,4 @@ def printer(x):
 # printer(playerbyPos("QB"))
 # printer(teamStat())
 # printer(bestPlayerByPos())
+printer(playerByName("Deshaun Watson"))
