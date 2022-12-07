@@ -1,0 +1,67 @@
+.topnav {
+    /* background-color: rgb(210,159,25); */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 5%;
+  }
+  
+  /* Style the links inside the navigation bar */
+.topnav button {
+    background-color: rgb(121, 208, 156);
+    width: 33%;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 0 auto;
+    display: inline;
+    /*border: 3px solid rgb(210, 159, 25);*/
+    border: none;
+}
+.topnav form {
+    margin: 0 auto;
+    display:inline;
+    border:none;
+}
+
+/* Change the color of links on hover */
+.topnav button:hover {
+  background-color: mediumseagreen;
+  color: white;
+}
+
+/* Add a color to the active/current link */
+.topnav button.active {
+  background-color: rgb(57, 126, 166);
+  color: white;
+}
+
+.gradient {
+    background: linear-gradient(270deg, #2ed4a9, #2e8cd4);
+    background-size: 400% 400%;
+    width: 100%;
+    height: 100%;
+    animation: AnimationName 6s ease infinite;
+    display: flex;
+    justify-content:center;
+}
+
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.card{
+    width:80%;
+    height:80%;
+    padding:5%;
+    border-radius: 5%;
+    background-color: white;
+}
