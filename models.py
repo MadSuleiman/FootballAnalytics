@@ -116,9 +116,9 @@ def getAll():
         x = conn.execute("select * from allData").fetchall()
         return x
 
-def playerStats():
+def playerStats(order = ""):
     with engine.connect() as conn:
-        x = conn.execute("select p_name, p_team, position, sum(pass_cmp), sum(pass_att), sum(pass_yds), sum(pass_td), sum(pass_int), sum(pass_sacked), sum(pass_sacked_yds), sum(pass_long),sum(pass_rating), sum(rush_att), sum(rush_yds), sum(rush_td), sum(rush_long), sum(targets), sum(rec), sum(rec_yds), sum(rec_td) from players, stats,players2Positions, positions where players.id = stats.playerID and players.id = players2Positions.playerID and positionID = positions.id group by p_name;").fetchall()
+        x = conn.execute("select p_name, p_team, position, sum(pass_cmp), sum(pass_att), sum(pass_yds), sum(pass_td), sum(pass_int), sum(pass_sacked), sum(pass_sacked_yds), sum(pass_long),sum(pass_rating), sum(rush_att), sum(rush_yds), sum(rush_td), sum(rush_long), sum(targets), sum(rec), sum(rec_yds), sum(rec_td) from players, stats,players2Positions, positions where players.id = stats.playerID and players.id = players2Positions.playerID and positionID = positions.id group by p_name "+ order).fetchall()
         return x
 
 def statsByTeam():
@@ -137,14 +137,14 @@ def playerbyPos(pos):
         x = conn.execute("select distinct p_name, position, p_team from players, players2positions, positions where players.id = playerID and positionID = positions.id and position = ? order by p_name, position, p_team;", pos).fetchall()
         return x
 
-def teamRecord():
+def teamRecord(order = ""):
     with engine.connect() as conn:
         with open('./Phase2/queries/13.sql', "r") as r:
             r.readline()
             r.readline()
             r.readline()
             file = r.read()
-            x = conn.execute(file).fetchall()
+            x = conn.execute(file + order).fetchall()
             return x
 
 def bestPlayerByPos():

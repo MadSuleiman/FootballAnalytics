@@ -29,7 +29,7 @@
                         <th>Wins</th>
                         <th>Losses</th>
                         {% for t in teams %}
-                            <tr>
+                            <tr onclick="jumpToLink('/teams/{{t[0]}}')">
                                 {% for x in t %}
                                     <td>
                                         {{x}}

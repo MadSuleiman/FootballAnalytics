@@ -25,9 +25,9 @@
             <table>
                 {% block content %}
                     {% if players %}
-                        <th>Player Name</th>
-                        <th>Team</th>
-                        <th>Position</th>
+                        <th onclick="jumpToLink('/players/order/p_name')">Player Name</th>
+                        <th onclick="jumpToLink('/players/order/p_team')">Team</th>
+                        <th onclick="jumpToLink('/players/order/position')">Position</th>
                         {% for p in players %}
                             <tr onclick="jumpToLink('/players/{{p.p_name}}')">
                                 <td >{{p.p_name}}</td>
