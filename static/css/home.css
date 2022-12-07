@@ -99,12 +99,13 @@ table{
     display:block;
     overflow-y: auto;
     width:auto;
-    height: 20%;
+    height: 30%;
     border-radius: 5px;
-    background-color: #2ed4a9;
+    background-color: lightgray;
     padding: 1%;
+    border-style: solid;
 }
 
 tr{
-    
+
 }

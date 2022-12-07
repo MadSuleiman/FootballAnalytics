@@ -18,6 +18,31 @@
         <div style = "width: 100%; height : 5%">
             <input class ="searchBox" type="text" placeholder="Team name...">
             <button class ="searchButton"type="button" onclick="">Search</button>
-        </div>    
+        </div>
+        <br>
+        <div class="list" >
+            <p style = "text-align: left;">List of Teams</p>
+            <table>
+                {% block content %}
+                    {% if teams %}
+                        <th>Team Name</th>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                        {% for t in teams %}
+                            <tr>
+                                {% for x in t %}
+                                    <td>
+                                        {{x}}
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                        {% if error %}
+                            {{error}}
+                        {% endif %}
+                    {% endif %}
+                {% endblock content %}
+            </table>
+        </div>     
     </div> 
 </div>

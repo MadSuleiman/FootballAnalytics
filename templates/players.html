@@ -25,16 +25,14 @@
             <table>
                 {% block content %}
                     {% if players %}
-                        <th>Player ID</th>
                         <th>Player Name</th>
                         <th>Team</th>
-                        <th>Add</th>
+                        <th>Position</th>
                         {% for p in players %}
                             <tr>
                                 <td>{{p.p_name}}</td>
                                 <td>{{p.p_team}}</td>
                                 <td>{{p[2]}}</td>
-                                <td>{{p.p_name}}</td>
                             </tr>
                             {% endfor %}
                         {% if error %}

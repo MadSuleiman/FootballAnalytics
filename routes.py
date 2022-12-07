@@ -21,8 +21,8 @@ def players():
 
 @app.route("/teams", )
 def teams():
-
-    return render_template("teams.html")
+    t = models.teamRecord()
+    return render_template("teams.html", teams = t)
 
 if __name__ == '__main__':
     app.run()
