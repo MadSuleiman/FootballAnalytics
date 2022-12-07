@@ -109,11 +109,11 @@ table{
     border-style: solid;
 }
 tr:hover{
-
+    cursor: pointer;
     background-color: lightblue
 }
 th:hover{
-
+    cursor: pointer;
     background-color: lightgreen
 }
 

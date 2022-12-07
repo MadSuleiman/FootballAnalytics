@@ -60,5 +60,13 @@ def teamsName(name):
     t = models.teamRecord()
     return render_template("teams.html", teams = t)
 
+
+@app.route("/games", )
+def games():
+    g = models.statsByGame()
+    print(g)
+    
+    return render_template("games.html", games = g)
+
 if __name__ == '__main__':
     app.run()
