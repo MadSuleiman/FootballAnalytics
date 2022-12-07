@@ -44,7 +44,7 @@ CREATE TABLE stats(
     rush_yds integer default 0,
     rush_td integer default 0,
     rush_long integer default 0,
-    targets default 0,
+    targets integer default 0,
     rec integer default 0,
     rec_yds integer default 0,
     rec_td integer default 0

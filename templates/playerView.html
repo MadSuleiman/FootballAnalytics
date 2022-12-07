@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <script src="{{url_for('static', filename='js/home.js')}}" type="text/javascript"></script>
+</head>
+
+<div class="gradient">
+    <div class="card">
+        <div class="topnav">
+            <button type="button" style = "border-bottom-left-radius: 20px; border-top-left-radius: 20px" onclick="jumpToLink('/home')">Home</button>
+            <button type="button" class="active" onclick="jumpToLink('/players')">Players</button>
+            <button type="button" style = "border-bottom-right-radius: 20px; border-top-right-radius: 20px" onclick="jumpToLink('/teams')">Teams</button>
+        </div>
+        <br>
+        <div style = "width: 100%; height : 5%">
+            <input class ="searchBox" type="text" placeholder="Player name...">
+            <button class ="searchButton"type="button" onclick="">Search</button>
+        </div>
+        <br>
+        <div class = "header">
+            <div>
+                <h1>{{p.p_name}}</h1>
+                <h4>Position: {{p.position}}</h4>
+                <h4>Team: {{p.p_team}}</h4>
+            </div>
+            <div>
+
+            </div>
+            
+        </div>
+        <div class="list" style="height: 70%">
+            <p>Games</p>
+            <table>
+                {% block content %}
+                    {% if games %}
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/p_name')">Name</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/p_team')">Team</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/gameID')">Game ID</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/pass_cmp')">Pass CMP</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/pass_att')">Pass ATT</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/pass_yds')">Pass YDS</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/pass_td')">Pass TD</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/pass_int')">Pass INT</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/pass_sacked')">Pass SACK</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/pass_sacked_yds')">Pass SACK_YDS</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/pass_long')">Pass LONG</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/pass_rating')">Pass RT</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/rush_att')">Rush ATT</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/rush_yds')">Rush YDS</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/rush_td')">Rush TD</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/rush_long')">Rush LONG</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/targets')">Targets</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/rec')">Rec</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/rec_yds')">Rec YDS</th>
+                    <th onclick="jumpToLink('/players/{{p.p_name}}/rec_td')">Rec TD</th>
+                    {% for g in games %}
+                        <tr onclick="jumpToLink('/games/{{g.gameID}}/')">
+                            {% for x in g %}
+                                <td >{{x}}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                {% endblock content %}
+            </table>
+        </div>
+    </div>
+</div>

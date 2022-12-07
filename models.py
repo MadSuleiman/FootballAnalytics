@@ -157,9 +157,9 @@ def bestPlayerByPos():
             x = conn.execute(file).fetchall()
             return x
 
-def playerByName(name):
+def playerByName(name, order = ""):
     with engine.connect() as conn:
-        x = conn.execute("select * from players, stats where players.id = stats.playerID and players.p_name like ?", name).fetchall()
+        x = conn.execute("select p_name, p_team, gameID, pass_cmp, pass_att, pass_yds, pass_td, pass_int, pass_sacked, pass_sacked_yds, pass_long,pass_rating, rush_att, rush_yds, rush_td, rush_long, targets, rec, rec_yds, rec_td from players, stats where players.id = stats.playerID and players.p_name like ? " + order, name).fetchall()
         return x
 
 def playersByTeam(team):

@@ -21,15 +21,29 @@ def players():
 
 @app.route("/players/<name>", )
 def playersName(name):
-    p = models.playerStats()
+    p = models.playerByName(name)[0]
+    print(p)
+    g = models.playerByName(name)
+    return render_template("playerView.html", p=p, games = g)
+
+@app.route("/players/<name>/<order>", )
+def playersNameOrd(name, order):
+    data = models.playerByName(name)
+    if data:
+        p = models.playerByName(name)[0]
+        g = models.playerByName(name, " order by " + order + " desc")
+        return render_template("playerView.html", p=p, games = g)
     
-    return render_template("players.html", players = p)
 
 @app.route("/players/order/<order>", )
 def playersOrder(order):
     p = models.playerStats("order by "+ order + " desc ")
     
     return render_template("players.html", players = p)
+
+@app.route("/player", )
+def player():
+    return redirect(url_for("/players"))
 
 @app.route("/teams", )
 def teams():
