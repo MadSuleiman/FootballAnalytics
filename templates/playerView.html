@@ -12,7 +12,8 @@
         <div class="topnav">
             <button type="button" style = "border-bottom-left-radius: 20px; border-top-left-radius: 20px" onclick="jumpToLink('/home')">Home</button>
             <button type="button" class="active" onclick="jumpToLink('/players')">Players</button>
-            <button type="button" style = "border-bottom-right-radius: 20px; border-top-right-radius: 20px" onclick="jumpToLink('/teams')">Teams</button>
+            <button type="button" onclick="jumpToLink('/teams')">Teams</button>
+            <button type="button" style = "border-bottom-right-radius: 20px; border-top-right-radius: 20px" onclick="jumpToLink('/games')">Games</button>
         </div>
         <br>
         <div style = "width: 100%; height : 5%">
@@ -57,7 +58,7 @@
                     <th onclick="jumpToLink('/players/{{p.p_name}}/rec_yds')">Rec YDS</th>
                     <th onclick="jumpToLink('/players/{{p.p_name}}/rec_td')">Rec TD</th>
                     {% for g in games %}
-                        <tr onclick="jumpToLink('/games/{{g.gameID}}/')">
+                        <tr onclick="jumpToLink('/games/{{g.gameID}}')">
                             {% for x in g %}
                                 <td >{{x}}</td>
                             {% endfor %}

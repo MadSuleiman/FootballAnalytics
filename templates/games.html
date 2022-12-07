@@ -45,7 +45,7 @@
                         <th onclick="jumpToLink('/games/order/gameID')">Rec YDS</th>
                         <th onclick="jumpToLink('/games/order/gameID')">Rec TD</th>
                         {% for g in games %}
-                            <tr onclick="jumpToLink('/games/{{g.gameID}}')">
+                            <tr onclick="jumpToLink('/games/{{g[0]}}')">
                                 {% for x in g %}
                                     <td >{{x}}</td>
                                 {% endfor %}

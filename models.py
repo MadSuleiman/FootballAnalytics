@@ -12,7 +12,7 @@ metadata = db.MetaData()
 # Session = sessionmaker(engine)
 
 # Load our sh file for db creation (temp)
-os.popen('sh ./createload.sh')
+# os.popen('sh ./createload.sh')
 
 class players():
     __tablename__ = 'players'
@@ -118,7 +118,7 @@ def getAll():
 
 def playerStats(order = ""):
     with engine.connect() as conn:
-        x = conn.execute("select distinct p_name, p_team, position, sum(pass_cmp), sum(pass_att), sum(pass_yds), sum(pass_td), sum(pass_int), sum(pass_sacked), sum(pass_sacked_yds), sum(pass_long), round(sum(pass_rating)), sum(rush_att), sum(rush_yds), sum(rush_td), sum(rush_long), sum(targets), sum(rec), sum(rec_yds), sum(rec_td) from players, stats,players2Positions, positions where players.id = stats.playerID and players.id = players2Positions.playerID and positionID = positions.id and players2Positions.year like '2020' group by p_name "+ order).fetchall()
+        x = conn.execute("select distinct p_name, p_team, position, sum(pass_cmp), sum(pass_att), sum(pass_yds), sum(pass_td), sum(pass_int), sum(pass_sacked), sum(pass_sacked_yds), sum(pass_long), round(sum(pass_rating)), sum(rush_att), sum(rush_yds), sum(rush_td), sum(rush_long), sum(targets), sum(rec), sum(rec_yds), sum(rec_td) from players, stats,players2Positions, positions where players.id = stats.playerID and players.id = players2Positions.playerID and positionID = positions.id and players2Positions.year like '2020' group by p_name, p_team "+ order).fetchall()
         return x
 
 def statsByTeam():
@@ -166,6 +166,16 @@ def playersByTeam(team):
     with engine.connect() as conn:
         x = conn.execute("select * from players where players.p_team like ?", team).fetchall()
         return x
+    
+def playersByGame(game):
+    with engine.connect() as conn:
+        x = conn.execute("select p_name, p_team, pass_cmp, pass_att, pass_yds, pass_td, pass_int, pass_sacked, pass_sacked_yds, pass_long,pass_rating, rush_att, rush_yds, rush_td, rush_long, targets, rec, rec_yds, rec_td from games, players, stats where players.id = stats.playerID and games.id = stats.gameID and games.id like ? group by p_name", game).fetchall()
+        return x
+
+def gameByID(name):
+    with engine.connect() as conn:
+        x = conn.execute("select games.id, t1.t_team, home_score, t2.t_team, vis_score, sum(pass_cmp), sum(pass_att), sum(pass_yds), sum(pass_td), sum(pass_int), sum(pass_sacked), sum(pass_sacked_yds), sum(pass_long),sum(pass_rating), sum(rush_att), sum(rush_yds), sum(rush_td), sum(rush_long), sum(targets), sum(rec), sum(rec_yds), sum(rec_td) from games, teams2games, teams as t1, teams as t2, stats where games.id = teams2games.gameID and t1.id = teams2games.team1ID and t2.id = teams2games.team2ID and games.id = stats.gameID and games.id like ? ", name).fetchall()
+        return x
 
 def printer(x):
     for y in x:
@@ -178,3 +188,5 @@ def printer(x):
 # printer(playerbyPos("QB"))
 # printer(teamStat())
 # printer(bestPlayerByPos())
+# printer(gameByID("202009140den"))
+# printer(playersByGame("202009140den"))

@@ -4,6 +4,9 @@ import models
 import os, json
 app = create_app()
 
+def noSpace(s):
+    s = s.replace("%20"," ")
+    return s
 @app.route("/", )
 def start(error='Invalid username or password'):
     return redirect(url_for('home'))
@@ -64,9 +67,15 @@ def teamsName(name):
 @app.route("/games", )
 def games():
     g = models.statsByGame()
-    print(g)
     
     return render_template("games.html", games = g)
+
+@app.route("/games/<id>", )
+def gamesSearch(id):
+    g = models.gameByID(id)[0]
+    p = models.playersByGame(id)
+    print(g)
+    return render_template("gameView.html", g = g, players = p)
 
 if __name__ == '__main__':
     app.run()
