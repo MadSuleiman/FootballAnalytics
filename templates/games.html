@@ -26,24 +26,24 @@
             <table>
                 {% block content %}
                     {% if games %}
-                        <th onclick="jumpToLink('/games/order/gameID')">Game ID</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Pass CMP</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Pass ATT</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Pass YDS</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Pass TD</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Pass INT</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Pass SACK</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Pass SACK_YDS</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Pass LONG</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Pass RT</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Rush ATT</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Rush YDS</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Rush TD</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Rush LONG</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Targets</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Rec</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Rec YDS</th>
-                        <th onclick="jumpToLink('/games/order/gameID')">Rec TD</th>
+                        <th onclick="jumpToLink('/games/order/game_ID')">Game ID</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_cmp)')">Pass CMP</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_att)')">Pass ATT</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_yds)')">Pass YDS</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_td)')">Pass TD</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_int)')">Pass INT</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_sacked)')">Pass SACK</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_sacked_yds)')">Pass SACK_YDS</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_long)')">Pass LONG</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_rating)')">Pass RT</th>
+                        <th onclick="jumpToLink('/games/order/sum(rush_att)')">Rush ATT</th>
+                        <th onclick="jumpToLink('/games/order/sum(rush_yds)')">Rush YDS</th>
+                        <th onclick="jumpToLink('/games/order/sum(rush_td)')">Rush TD</th>
+                        <th onclick="jumpToLink('/games/order/sum(rush_long)')">Rush LONG</th>
+                        <th onclick="jumpToLink('/games/order/sum(targets)')">Targets</th>
+                        <th onclick="jumpToLink('/games/order/sum(rec)')">Rec</th>
+                        <th onclick="jumpToLink('/games/order/sum(rec_yds)')">Rec YDS</th>
+                        <th onclick="jumpToLink('/games/order/sum(rec_td)')">Rec TD</th>
                         {% for g in games %}
                             <tr onclick="jumpToLink('/games/{{g[0]}}')">
                                 {% for x in g %}

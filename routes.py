@@ -70,6 +70,12 @@ def games():
     
     return render_template("games.html", games = g)
 
+@app.route("/games/order/<order>", )
+def gamesOrder(order):
+    g = models.statsByGame(" order by "+ order+ " desc ")
+    
+    return render_template("games.html", games = g)
+
 @app.route("/games/<id>", )
 def gamesSearch(id):
     g = models.gameByID(id)[0]
