@@ -15,8 +15,9 @@ def home():
 
 @app.route("/players", )
 def players():
-
-    return render_template("players.html")
+    p = models.playerStats()
+    
+    return render_template("players.html", players = p)
 
 @app.route("/teams", )
 def teams():
