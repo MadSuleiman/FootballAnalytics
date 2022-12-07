@@ -28,11 +28,28 @@
                         <th onclick="jumpToLink('/players/order/p_name')">Player Name</th>
                         <th onclick="jumpToLink('/players/order/p_team')">Team</th>
                         <th onclick="jumpToLink('/players/order/position')">Position</th>
+                        <th onclick="jumpToLink('/players/order/sum(pass_cmp)')">Pass CMP</th>
+                        <th onclick="jumpToLink('/players/order/sum(pass_att)')">Pass ATT</th>
+                        <th onclick="jumpToLink('/players/order/sum(pass_yds)')">Pass YDS</th>
+                        <th onclick="jumpToLink('/players/order/sum(pass_td)')">Pass TD</th>
+                        <th onclick="jumpToLink('/players/order/sum(pass_int)')">Pass INT</th>
+                        <th onclick="jumpToLink('/players/order/sum(pass_sacked)')">Pass SACK</th>
+                        <th onclick="jumpToLink('/players/order/sum(pass_sacked_yds)')">Pass SACK_YDS</th>
+                        <th onclick="jumpToLink('/players/order/sum(pass_long)')">Pass LONG</th>
+                        <th onclick="jumpToLink('/players/order/sum(pass_rating)')">Pass RT</th>
+                        <th onclick="jumpToLink('/players/order/sum(rush_att)')">Rush ATT</th>
+                        <th onclick="jumpToLink('/players/order/sum(rush_yds)')">Rush YDS</th>
+                        <th onclick="jumpToLink('/players/order/sum(rush_td)')">Rush TD</th>
+                        <th onclick="jumpToLink('/players/order/sum(rush_long)')">Rush LONG</th>
+                        <th onclick="jumpToLink('/players/order/sum(targets)')">Targets</th>
+                        <th onclick="jumpToLink('/players/order/sum(rec)')">Rec</th>
+                        <th onclick="jumpToLink('/players/order/sum(rec_yds)')">Rec YDS</th>
+                        <th onclick="jumpToLink('/players/order/sum(rec_td)')">Rec TD</th>
                         {% for p in players %}
                             <tr onclick="jumpToLink('/players/{{p.p_name}}')">
-                                <td >{{p.p_name}}</td>
-                                <td>{{p.p_team}}</td>
-                                <td>{{p[2]}}</td>
+                                {% for x in p %}
+                                    <td >{{x}}</td>
+                                {% endfor %}
                             </tr>
                             {% endfor %}
                         {% if error %}

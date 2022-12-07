@@ -27,7 +27,7 @@ def playersName(name):
 
 @app.route("/players/order/<order>", )
 def playersOrder(order):
-    p = models.playerStats("order by "+ order)
+    p = models.playerStats("order by "+ order + " desc ")
     
     return render_template("players.html", players = p)
 
