@@ -19,8 +19,19 @@ def players():
     
     return render_template("players.html", players = p)
 
+@app.route("/players/<name>", )
+def playersName(name):
+    p = models.playerStats()
+    
+    return render_template("players.html", players = p)
+
 @app.route("/teams", )
 def teams():
+    t = models.teamRecord()
+    return render_template("teams.html", teams = t)
+
+@app.route("/teams/<name>", )
+def teamsName(name):
     t = models.teamRecord()
     return render_template("teams.html", teams = t)
 

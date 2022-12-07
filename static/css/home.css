@@ -105,7 +105,7 @@ table{
     padding: 1%;
     border-style: solid;
 }
+tr:hover{
 
-tr{
-
+    background-color: lightblue
 }
