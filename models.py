@@ -137,6 +137,16 @@ def playerbyPos(pos):
         x = conn.execute("select distinct p_name, position, p_team from players, players2positions, positions where players.id = playerID and positionID = positions.id and position = ? order by p_name, position, p_team;", pos).fetchall()
         return x
 
+def teamStat():
+    with engine.connect() as conn:
+        with open('./Phase2/queries/13.sql', "r") as r:
+            r.readline()
+            r.readline()
+            r.readline()
+            file = r.read()
+            x = conn.execute(file).fetchall()
+            return x
+
 def printer(x):
     for y in x:
         print(y)
@@ -146,3 +156,4 @@ def printer(x):
 # printer(statsByTeam())
 # printer(statsByGame())
 # printer(playerbyPos("QB"))
+# printer(teamStat())
