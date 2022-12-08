@@ -68,11 +68,16 @@ def teamsOrder(order):
 @app.route("/teams/<name>", )
 def teamsName(name):
     t = models.teamRecord()
+    nameFound = False
     for x in t:
         if x[0] == name:
             t = x
-    p = models.roster(name)
-    return render_template("teamsView.html",  t = t, players = p)
+            nameFound = True
+    if nameFound:
+        p = models.roster(name)
+        return render_template("teamsView.html",  t = t, players = p)
+    else:
+        return redirect(url_for("teams"))
  
 
 @app.route("/games", )
@@ -90,6 +95,8 @@ def gamesOrder(order):
 @app.route("/games/<id>", )
 def gamesSearch(id):
     g = models.gameByID(id)[0]
+    if g[0] == None:
+        return redirect(url_for("games"))
     p = models.playersByGame(id)
     # print(g)
     return render_template("gameView.html", g = g, players = p)
