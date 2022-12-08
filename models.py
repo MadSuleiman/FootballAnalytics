@@ -139,7 +139,7 @@ def playerbyPos(pos):
 
 def roster(team):
     with engine.connect() as conn:
-        x = conn.execute('SELECT p_name, t_team FROM players, teams WHERE p_team=t_team and t_team = ? group by p_name order by t_team', team).fetchall()
+        x = conn.execute('SELECT p_name FROM players, teams WHERE p_team=t_team and t_team = ? group by p_name order by t_team', team).fetchall()
         return x
 
 def teamRecord(order = ""):
