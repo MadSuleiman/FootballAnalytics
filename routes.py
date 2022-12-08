@@ -108,5 +108,10 @@ def gamesIDOrder(order):
     
     return render_template("games.html", games = g, gameList = L)
 
+@app.route("/teamIMG/<name>")
+def teamIMG(name):
+    print(os.getcwd())
+    return send_file(os.getcwd() + ("/team_logos/"+name+".png"))
+
 if __name__ == '__main__':
     app.run(debug=True)
