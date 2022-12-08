@@ -10,3 +10,11 @@ function search(url){
     }
     jumpToLink(url+name)
 }
+
+function having(url){
+    const stat = document.getElementById("stat").value
+    const comparison = document.getElementById("comparison").value
+    const integ = document.getElementById("having").value 
+    const haver = stat+comparison+integ
+    jumpToLink(url+haver)
+}

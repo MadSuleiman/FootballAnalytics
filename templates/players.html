@@ -63,27 +63,34 @@
         <br>
         <br>
         <div class = "having">
-            <div class="dropdown">
-                <button class="dropbtn">Dropdown</button>
-                <select class="dropdown-content">
-                    <option value = "">Pass CMP</option>
-                    <option value = "">Pass ATT</option>
-                    <option value = "">Pass YDS</option>
-                    <option value = "">Pass TD</option>
-                    <option value = "">Pass INT</option>
-                    <option value = "">Pass SACK</option>
-                    <option value = "">Pass SACK_YDS</option>
-                    <option value = "">Pass LONG</option>
-                    <option value = "">Pass RT</option>
-                    <option value = "">Rush ATT</option>
-                    <option value = "">Rush YDS</option>
-                    <option value = "">Rush TD</option>
-                    <option value = "">Rush LONG</option>
-                    <option value = "">Targets</option>
-                    <option value = "">Rec</option>
-                    <option value = "">Rec YDS</option>
-                    <option value = "">Rec TD</option>
+            <div >
+                <label>Filter players:</label>
+                <select id="stat">
+                    <option value = "sum(pass_cmp)">Pass CMP</option>
+                    <option value = "sum(pass_att)">Pass ATT</option>
+                    <option value = "sum(pass_yds)">Pass YDS</option>
+                    <option value = "sum(pass_td)">Pass TD</option>
+                    <option value = "sum(pass_int)">Pass INT</option>
+                    <option value = "sum(pass_sacked)">Pass SACK</option>
+                    <option value = "sum(pass_sacked_yds)">Pass SACK_YDS</option>
+                    <option value = "sum(pass_long)">Pass LONG</option>
+                    <option value = "sum(pass_rating)">Pass RT</option>
+                    <option value = "sum(rush_att)">Rush ATT</option>
+                    <option value = "sum(rush_yds)">Rush YDS</option>
+                    <option value = "sum(rush_td)">Rush TD</option>
+                    <option value = "sum(rush_long)">Rush LONG</option>
+                    <option value = "sum(targets)">Targets</option>
+                    <option value = "sum(rec)">Rec</option>
+                    <option value = "sum(rec_yds)">Rec YDS</option>
+                    <option value = "sum(rec_td)">Rec TD</option>
                 </select>
+                <select id="comparison">
+                    <option value = ">" >></option>
+                    <option value = "=" >=</option>
+                    <option value = "<" ><</option>
+                </select>
+                <input id="having" type="number" placeholder="Ex. 23">
+                <button onclick="having('/players/having/')">Filter</button>
               </div>
         </div>   
     </div> 

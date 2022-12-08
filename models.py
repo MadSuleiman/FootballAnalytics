@@ -116,9 +116,9 @@ def getAll():
         x = conn.execute("select * from allData").fetchall()
         return x
 
-def playerStats(order = ""):
+def playerStats(order = "", have = ""):
     with engine.connect() as conn:
-        x = conn.execute("select distinct p_name, p_team, position, sum(pass_cmp), sum(pass_att), sum(pass_yds), sum(pass_td), sum(pass_int), sum(pass_sacked), sum(pass_sacked_yds), sum(pass_long), round(sum(pass_rating)), sum(rush_att), sum(rush_yds), sum(rush_td), sum(rush_long), sum(targets), sum(rec), sum(rec_yds), sum(rec_td) from players, stats,players2Positions, positions where players.id = stats.playerID and players.id = players2Positions.playerID and positionID = positions.id and players2Positions.year like '2020' group by p_name, p_team, year "+ order).fetchall()
+        x = conn.execute("select distinct p_name, p_team, position, sum(pass_cmp), sum(pass_att), sum(pass_yds), sum(pass_td), sum(pass_int), sum(pass_sacked), sum(pass_sacked_yds), sum(pass_long), round(sum(pass_rating)), sum(rush_att), sum(rush_yds), sum(rush_td), sum(rush_long), sum(targets), sum(rec), sum(rec_yds), sum(rec_td) from players, stats,players2Positions, positions where players.id = stats.playerID and players.id = players2Positions.playerID and positionID = positions.id and players2Positions.year like '2020' group by p_name, p_team, year "+ order + have).fetchall()
         return x
 
 def statsByTeam():
@@ -126,9 +126,9 @@ def statsByTeam():
         x = conn.execute("select team, sum(pass_cmp), sum(pass_att), sum(pass_yds), sum(pass_td), sum(pass_int), sum(pass_sacked), sum(pass_sacked_yds), sum(pass_long),sum(pass_rating), sum(rush_att), sum(rush_yds), sum(rush_td), sum(rush_long), sum(targets), sum(rec), sum(rec_yds), sum(rec_td) from allData group by team;").fetchall()
         return x
 
-def statsByGame(order = ""):
+def statsByGame(order = "", having =""):
     with engine.connect() as conn:
-        x = conn.execute("select game_ID, sum(pass_cmp), sum(pass_att), sum(pass_yds), sum(pass_td), sum(pass_int), sum(pass_sacked), sum(pass_sacked_yds), sum(pass_long), round(sum(pass_rating)), sum(rush_att), sum(rush_yds), sum(rush_td), sum(rush_long), sum(targets), sum(rec), sum(rec_yds), sum(rec_td) from allData group by game_ID " + order).fetchall()
+        x = conn.execute("select game_ID, sum(pass_cmp), sum(pass_att), sum(pass_yds), sum(pass_td), sum(pass_int), sum(pass_sacked), sum(pass_sacked_yds), sum(pass_long), round(sum(pass_rating)), sum(rush_att), sum(rush_yds), sum(rush_td), sum(rush_long), sum(targets), sum(rec), sum(rec_yds), sum(rec_td) from allData group by game_ID " + order + having).fetchall()
         return x
 
 

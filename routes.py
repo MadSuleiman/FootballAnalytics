@@ -51,6 +51,13 @@ def playersOrder(order):
     
     return render_template("players.html", players = p)
 
+@app.route("/players/having/<have>", )
+def playersHave(have):
+    p = models.playerStats(have = ("having "+ have + "  "))
+    # p = models.playerStats()
+    
+    return render_template("players.html", players = p)
+
 @app.route("/player", )
 def player():
     return redirect(url_for("/players"))
@@ -89,6 +96,12 @@ def games():
 @app.route("/games/order/<order>", )
 def gamesOrder(order):
     g = models.statsByGame(" order by "+ order+ " desc ")
+    
+    return render_template("games.html", games = g)
+
+@app.route("/games/having/<have>", )
+def gamesHaving(have):
+    g = models.statsByGame(having = (" having "+ have+ " "))
     
     return render_template("games.html", games = g)
 
