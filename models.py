@@ -137,6 +137,14 @@ def playerbyPos(pos):
         x = conn.execute("select distinct p_name, position, p_team from players, players2positions, positions where players.id = playerID and positionID = positions.id and position = ? order by p_name, position, p_team;", pos).fetchall()
         return x
 
+def roster():
+    with engine.connect() as conn:
+        x = conn.execute('''SELECT p_name, t_team FROM players, teams
+WHERE p_team=t_team
+group by p_name
+order by t_team''').fetchall()
+        return x
+
 def teamRecord(order = ""):
     with engine.connect() as conn:
         with open('./Phase2/queries/13.sql', "r") as r:
@@ -161,6 +169,8 @@ def playerByName(name, order = ""):
     with engine.connect() as conn:
         x = conn.execute("select p_name, p_team, gameID, pass_cmp, pass_att, pass_yds, pass_td, pass_int, pass_sacked, pass_sacked_yds, pass_long,pass_rating, rush_att, rush_yds, rush_td, rush_long, targets, rec, rec_yds, rec_td from players, stats where players.id = stats.playerID and players.p_name like ? " + order, name).fetchall()
         return x
+
+
 
 def playersByTeam(team):
     with engine.connect() as conn:
