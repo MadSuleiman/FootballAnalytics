@@ -27,4 +27,9 @@ insert into teams2games
     select distinct t1.id, t2.id, game_id
         from allData, teams as t1, teams as t2
         where t1.t_team= allData.home_team
-        and t2.t_team = allData.vis_team
+        and t2.t_team = allData.vis_team;
+
+update games
+set vis_score = home_score+1
+WHERE
+    id = "202010110htx";

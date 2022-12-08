@@ -80,8 +80,8 @@ def gamesOrder(order):
 def gamesSearch(id):
     g = models.gameByID(id)[0]
     p = models.playersByGame(id)
-    print(g)
+    # print(g)
     return render_template("gameView.html", g = g, players = p)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
