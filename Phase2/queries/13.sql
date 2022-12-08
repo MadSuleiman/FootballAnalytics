@@ -50,4 +50,4 @@ select t5.name as name, (t5.wins + t6.wins) as wins, t5.losses+t6.losses as loss
     on t5.name = t6.name
 ), coaches, divisions 
     where c_team = name
-    and d_team = name
+    and d_team = name 

@@ -137,12 +137,9 @@ def playerbyPos(pos):
         x = conn.execute("select distinct p_name, position, p_team from players, players2positions, positions where players.id = playerID and positionID = positions.id and position = ? order by p_name, position, p_team;", pos).fetchall()
         return x
 
-def roster():
+def roster(team):
     with engine.connect() as conn:
-        x = conn.execute('''SELECT p_name, t_team FROM players, teams
-WHERE p_team=t_team
-group by p_name
-order by t_team''').fetchall()
+        x = conn.execute('SELECT p_name, t_team FROM players, teams WHERE p_team=t_team and t_team = ? group by p_name order by t_team', team).fetchall()
         return x
 
 def teamRecord(order = ""):

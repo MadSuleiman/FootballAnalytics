@@ -24,9 +24,13 @@ def players():
 
 @app.route("/players/<name>", )
 def playersName(name):
-    p = models.playerByName(name)[0]
-    print(p)
+    p = models.playerByName(name)
+    
+    if p == []:
+        return redirect(url_for("players"))
+    p = p[0]
     g = models.playerByName(name)
+
     return render_template("playerView.html", p=p, games = g)
 
 @app.route("/players/<name>/<order>", )
@@ -40,7 +44,10 @@ def playersNameOrd(name, order):
 
 @app.route("/players/order/<order>", )
 def playersOrder(order):
-    p = models.playerStats("order by "+ order + " desc ")
+    if order == "p_name" or order == "p_team" :
+        p = models.playerStats("order by "+ order + " asc ")
+    else:
+        p = models.playerStats("order by "+ order + " desc ")
     
     return render_template("players.html", players = p)
 
@@ -53,16 +60,20 @@ def teams():
     t = models.teamRecord()
     return render_template("teams.html", teams = t)
 
-@app.route("/teams/<order>", )
+@app.route("/teams/order/<order>", )
 def teamsOrder(order):
-    t = models.teamRecord(order)
+    t = models.teamRecord("order by " + order + " desc")
     return render_template("teams.html", teams = t)
 
 @app.route("/teams/<name>", )
 def teamsName(name):
     t = models.teamRecord()
-    return render_template("teams.html", teams = t)
-
+    for x in t:
+        if x[0] == name:
+            t = x
+    p = models.roster(name)
+    return render_template("teamsView.html",  t = t, players = p)
+ 
 
 @app.route("/games", )
 def games():
@@ -82,6 +93,13 @@ def gamesSearch(id):
     p = models.playersByGame(id)
     # print(g)
     return render_template("gameView.html", g = g, players = p)
+
+@app.route("/games/<id>/<order>", )
+def gamesIDOrder(order):
+    g = models.gameByID(id)[0]
+    L = models.statsByGame(" order by "+ order+ " desc ")
+    
+    return render_template("games.html", games = g, gameList = L)
 
 if __name__ == '__main__':
     app.run(debug=True)

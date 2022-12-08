@@ -26,9 +26,11 @@
             <table>
                 {% block content %}
                     {% if teams %}
-                        <th>Team Name</th>
-                        <th>Wins</th>
-                        <th>Losses</th>
+                        <th onclick="jumpToLink('/teams/order/name')">Team Name</th>
+                        <th onclick="jumpToLink('/teams/order/wins')">Wins</th>
+                        <th onclick="jumpToLink('/teams/order/losses')">Losses</th>
+                        <th onclick="jumpToLink('/teams/order/c_name')">Coaches</th>
+                        <th onclick="jumpToLink('/teams/order/d_name')">Division</th>
                         {% for t in teams %}
                             <tr onclick="jumpToLink('/teams/{{t[0]}}')">
                                 {% for x in t %}
