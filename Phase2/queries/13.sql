@@ -2,7 +2,8 @@ SELECT'________________________________________________________________________'
 SELECT'13. Teams Wins/Losses';
 SELECT'________________________________________________________________________';
 -- Pull team wins/losses
-select t5.name, t5.wins + t6.wins, t5.losses+t6.losses from (
+select name, wins, losses, c_name, d_name from (
+select t5.name as name, (t5.wins + t6.wins) as wins, t5.losses+t6.losses as losses from (
     select t1.name as name, t1.wins as wins, t2.losses as losses from
         (
         select t_team as name, count(distinct games.id) as wins
@@ -47,4 +48,6 @@ select t5.name, t5.wins + t6.wins, t5.losses+t6.losses from (
         ) as t2  
         on (t1.name = t2.name)) as t6
     on t5.name = t6.name
-;
+), coaches, divisions 
+    where c_team = name
+    and d_team = name 

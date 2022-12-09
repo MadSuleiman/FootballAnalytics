@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <script src="{{url_for('static', filename='js/home.js')}}" type="text/javascript"></script>
+</head>
+
+<div class="gradient">
+    <div class="card">
+        <div class="topnav">
+            <button type="button" style = "border-bottom-left-radius: 20px; border-top-left-radius: 20px" onclick="jumpToLink('/home')">Home</button>
+            <button type="button" onclick="jumpToLink('/players')">Players</button>
+            <button type="button" onclick="jumpToLink('/teams')">Teams</button>
+            <button type="button" class="active" style = "border-bottom-right-radius: 20px; border-top-right-radius: 20px" onclick="jumpToLink('/games')">Games</button>
+        </div>
+        <br>
+        <div style = "width: 100%; height : 5%">
+            <input id = "srch" class ="searchBox" type="text" placeholder="Game ID...">
+            <button class ="searchButton"type="button" onclick="search('/games/')">Search</button>
+        </div> 
+        <br>
+        <div class="list" >
+            <p style = "text-align: left;">List of Games</p>
+            <table>
+                {% block content %}
+                    {% if games %}
+                        <th onclick="jumpToLink('/games/order/game_ID')">Game ID</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_cmp)')">Pass CMP</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_att)')">Pass ATT</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_yds)')">Pass YDS</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_td)')">Pass TD</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_int)')">Pass INT</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_sacked)')">Pass SACK</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_sacked_yds)')">Pass SACK_YDS</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_long)')">Pass LONG</th>
+                        <th onclick="jumpToLink('/games/order/sum(pass_rating)')">Pass RT</th>
+                        <th onclick="jumpToLink('/games/order/sum(rush_att)')">Rush ATT</th>
+                        <th onclick="jumpToLink('/games/order/sum(rush_yds)')">Rush YDS</th>
+                        <th onclick="jumpToLink('/games/order/sum(rush_td)')">Rush TD</th>
+                        <th onclick="jumpToLink('/games/order/sum(rush_long)')">Rush LONG</th>
+                        <th onclick="jumpToLink('/games/order/sum(targets)')">Targets</th>
+                        <th onclick="jumpToLink('/games/order/sum(rec)')">Rec</th>
+                        <th onclick="jumpToLink('/games/order/sum(rec_yds)')">Rec YDS</th>
+                        <th onclick="jumpToLink('/games/order/sum(rec_td)')">Rec TD</th>
+                        {% for g in games %}
+                            <tr onclick="jumpToLink('/games/{{g[0]}}')">
+                                {% for x in g %}
+                                    <td >{{x}}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        {% if error %}
+                            {{error}}
+                        {% endif %}
+                    {% endif %}
+                {% endblock content %}
+            </table>
+        </div>
+        <br>
+        <br>
+        <div class = "having">
+            <div >
+                <label>Filter games:</label>
+                <select id="stat">
+                    <option value = "sum(pass_cmp)">Pass CMP</option>
+                    <option value = "sum(pass_att)">Pass ATT</option>
+                    <option value = "sum(pass_yds)">Pass YDS</option>
+                    <option value = "sum(pass_td)">Pass TD</option>
+                    <option value = "sum(pass_int)">Pass INT</option>
+                    <option value = "sum(pass_sacked)">Pass SACK</option>
+                    <option value = "sum(pass_sacked_yds)">Pass SACK_YDS</option>
+                    <option value = "sum(pass_long)">Pass LONG</option>
+                    <option value = "sum(pass_rating)">Pass RT</option>
+                    <option value = "sum(rush_att)">Rush ATT</option>
+                    <option value = "sum(rush_yds)">Rush YDS</option>
+                    <option value = "sum(rush_td)">Rush TD</option>
+                    <option value = "sum(rush_long)">Rush LONG</option>
+                    <option value = "sum(targets)">Targets</option>
+                    <option value = "sum(rec)">Rec</option>
+                    <option value = "sum(rec_yds)">Rec YDS</option>
+                    <option value = "sum(rec_td)">Rec TD</option>
+                </select>
+                <select id="comparison">
+                    <option value = ">" >></option>
+                    <option value = "=" >=</option>
+                    <option value = "<" ><</option>
+                </select>
+                <input id="having" type="number" placeholder="Ex. 23">
+                <button onclick="having('/games/having/')">Filter</button>
+              </div>
+        </div>   
+    </div> 
+</div>

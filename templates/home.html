@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <script src="{{url_for('static', filename='js/home.js')}}" type="text/javascript"></script>
+</head>
+
+<div class="gradient">
+    <div class="card">
+        <div class="topnav">
+            <button type="button" class="active" style = "border-bottom-left-radius: 20px; border-top-left-radius: 20px" onclick="jumpToLink('/home')">Home</button>
+            <button type="button" onclick="jumpToLink('/players')">Players</button>
+            <button type="button" onclick="jumpToLink('/teams')">Teams</button>
+            <button type="button" style = "border-bottom-right-radius: 20px; border-top-right-radius: 20px" onclick="jumpToLink('/games')">Games</button>
+        </div>   
+        <br>
+        <div class="intro">
+            <h1>Welcome to NFLite</h1>
+            <img style ="width: 15%" src="https://static.www.nfl.com/image/upload/v1554321393/league/nvfr7ogywskqrfaiu38m.svg">
+            <h2>NFL Database Browsing Web Application </h2>
+            <br>
+            <h2>Final Presentation for CSE 111</h2>
+            <br>
+            <h2>By: </h2>
+            <h2>Vedaant Vyas </h2>
+            <h2>Ahmad Suleiman</h2>
+
+        </div> 
+    </div> 
+</div>
